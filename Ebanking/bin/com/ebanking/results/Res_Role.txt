@@ -1,0 +1,4 @@
+RoleName###RoleType###Results
+ClerkBomBK###E%*^*#$New Role with id 1973 Created Sucessfully
+poBomBk###E%*^*#$New Role with id 1974 Created Sucessfully
+CashierBomBk###E%*^*#$New Role with id 1975 Created Sucessfully
