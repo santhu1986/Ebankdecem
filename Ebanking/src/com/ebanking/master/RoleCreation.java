@@ -18,9 +18,9 @@ public class RoleCreation
 	@FindBy(xpath=".//*[@id='btninsert']")
 	WebElement Rsub;
 
-	public void Rcre(String Rnam,String Rty) throws InterruptedException 
+	public void Rcre(String Rn,String Rty) throws InterruptedException 
 	{
-	Rname.sendKeys(Rnam);
+	Rname.sendKeys(Rn);
 	Select Rt=new Select(Rtype);
 	Rt.selectByVisibleText(Rty);
 	Thread.sleep(3000);

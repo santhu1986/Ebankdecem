@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="28502" started-at="2021-11-26T09:27:41 IST" finished-at="2021-11-26T09:28:10 IST">
+  <suite name="Suite" duration-ms="27494" started-at="2022-01-28T13:46:30 IST" finished-at="2022-01-28T13:46:57 IST">
     <groups>
     </groups>
-    <test name="On Firefox" duration-ms="28502" started-at="2021-11-26T09:27:41 IST" finished-at="2021-11-26T09:28:10 IST">
+    <test name="on firefox" duration-ms="27494" started-at="2022-01-28T13:46:30 IST" finished-at="2022-01-28T13:46:57 IST">
       <class name="com.ebanking.master.Grid">
-        <test-method status="PASS" signature="Gd(java.lang.String)[pri:0, instance:com.ebanking.master.Grid@7b49cea0]" name="Gd" duration-ms="28446" started-at="2021-11-26T09:27:41 IST" finished-at="2021-11-26T09:28:10 IST">
+        <test-method status="PASS" signature="gd(java.lang.String)[pri:0, instance:com.ebanking.master.Grid@578486a3]" name="gd" duration-ms="27434" started-at="2022-01-28T13:46:30 IST" finished-at="2022-01-28T13:46:57 IST">
           <params>
             <param index="0">
               <value>
@@ -17,8 +17,8 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Gd -->
+        </test-method> <!-- gd -->
       </class> <!-- com.ebanking.master.Grid -->
-    </test> <!-- On Firefox -->
+    </test> <!-- on firefox -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -6,30 +6,31 @@ import org.openqa.selenium.support.FindBy;
 public class AdminHP 
 {
 
-	//EP
+	//Element Properties
 	
 	@FindBy(xpath="//img[@src='images/Branches_but.jpg']")
 	WebElement Branch;
 	
-	@FindBy(xpath=".//*[@id='Table_01']/tbody/tr[2]/td/table/tbody/tr[4]/td/a/img")
+	@FindBy(xpath="//img[@src='images/Roles_but.jpg']")
 	WebElement Role;
 	
-	//Employee
+	@FindBy(xpath="//img[@src='images/emp_btn.jpg']")
+	WebElement Employee;
 	
-	//Log out
+	@FindBy(xpath="//img[@src='images/admin_but_03.jpg']")
+	WebElement Logout;
 	
 	
-	//Element Methods
+	//Element methods
 	
-	public void Br()
+	
+	public void Br() 
 	{
-		Branch.click();
+	Branch.click();	
 	}
 	
 	public void Rol() 
 	{
-	Role.click();
-    }
-	
-	
+	Role.click();	
+	}
 }

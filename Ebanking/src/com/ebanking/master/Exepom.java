@@ -1,13 +1,5 @@
 package com.ebanking.master;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -17,90 +9,68 @@ import org.testng.annotations.Test;
 
 public class Exepom 
 {
-	
 	WebDriver driver;
-	
     @BeforeTest
-	public void login() throws InterruptedException
+	public void login() throws InterruptedException 
 	{
-		driver=new FirefoxDriver();
-		driver.manage().window().maximize();
-		driver.get("http://122.175.8.158/ranford2");
+	  
+	   driver=new FirefoxDriver();
+	   driver.manage().window().maximize();
+	   driver.get("http://122.175.8.158/ranford2");
+	   
+	  RanfordHP RHP=PageFactory.initElements(driver,RanfordHP.class);
+	  RHP.login();
+	  
+	}
+    @Test(dataProvider="Rdata")
+    public void Rcreation(String Rn,String Rt) throws InterruptedException
+    
+    {
+	  //Role
+	  
+	  AdminHP AHP=PageFactory.initElements(driver,AdminHP.class);
+	  AHP.Rol(); 
+	  
+	  //New Role
+	  
+	  Roledetails RD=PageFactory.initElements(driver,Roledetails.class);
+	  RD.Nrol();
+	   
+	  //Rolecreation
+	  
+	  RoleCreation RC=PageFactory.initElements(driver,RoleCreation.class);
+	  RC.Rcre(Rn,Rt);
+	  
+	  Thread.sleep(3000);
+	  
+	  driver.switchTo().alert().accept();
+	  
+	  Thread.sleep(3000);
+	  
+	  //Home
+	  
+	  RD.Hom();
+	 
+	  
+	}
+    
+@DataProvider
+	
+	public Object [][] Rdata()
+	{
+		Object[][] Obj=new Object[3][2];
+
+		Obj[0][0]="TellerRFBjan";
+		Obj[0][1]="E";
 		
-		//Login
+		Obj[1][0]="managerRFBjan";
+		Obj[1][1]="E";
 		
-		RanfordHP RHP=PageFactory.initElements(driver,RanfordHP.class);
-		RHP.Login();
+		Obj[2][0]="ClerkRFBjan";
+		Obj[2][1]="E";
+		
+		return Obj;
 		
 	}
-    @Test
-    public void Role() throws InterruptedException, IOException 
-    {
-		
-    	//To get Test Data File
-		
-    			FileInputStream Fis=new FileInputStream("E:\\MrngNovSel\\Ebanking\\src\\com\\ebanking\\testdata\\Role.xlsx");
-    			
-    			//Work Book
-    			
-    			XSSFWorkbook WB=new XSSFWorkbook(Fis);
-    			
-    			//Sheets
-    			
-    			XSSFSheet WS=WB.getSheet("Rdata");
-    			
-    			//Row Count
-    			
-    			int Rcount=WS.getLastRowNum();
-    			System.out.println(Rcount);
-    			
-    			//Multiple Iterations
-    			
-    			for (int i=1;i<=Rcount;i++) 
-    			{
-    			   
-    				//Row
-    				
-    				XSSFRow WR=WS.getRow(i);
-    				
-    				//Cell
-    				
-    				XSSFCell WC=WR.getCell(0);
-    				XSSFCell WC1=WR.getCell(1);
-    				
-    				XSSFCell WC2=WR.createCell(2);
-    				
-    				//Cell Values
-    				
-    				String Rname=WC.getStringCellValue();
-    				String Rty=WC1.getStringCellValue();
-    			
-		//Role
-		
-		AdminHP AHP=PageFactory.initElements(driver,AdminHP.class);
-		AHP.Rol();
-		
-		//New Role
-		
-		Roledetails RD=PageFactory.initElements(driver,Roledetails.class);
-		RD.Nrol();
-		
-		//Role Creation
-		
-		RoleCreation RC=PageFactory.initElements(driver,RoleCreation.class);
-		RC.Rcre(Rname,Rty);
-		
-		Thread.sleep(3000);
-		
-		//Alert
-		
-		driver.switchTo().alert().accept();
-		
-		//Home
-		
-		Thread.sleep(3000);
-		
-		RD.Hom();
-    			}
-    }
+
 }
